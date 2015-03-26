@@ -156,7 +156,9 @@
                 {
                     "type"         : "symlink",
                     "source"       : "${appconfig.datadir}/data",
-                    "name"         : "data"
+                    "name"         : "data",
+                    "retentionpolicy" : "keep",
+                    "retentionbucket" : "data",
                 }
             ],
 
