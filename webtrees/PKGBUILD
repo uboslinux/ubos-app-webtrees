@@ -1,0 +1,43 @@
+developer=http://webtrees.net/
+url=${developer}
+maintainer=http://indiecomputing.com/
+pkgname=$(basename $(pwd))
+_major=1.6
+pkgver=${_major}.2
+pkgrel=1
+pkgdesc="Web based family history software"
+arch=('any')
+license=("GPL")
+source=("https://launchpad.net/webtrees/${_major}/${pkgver}/+download/webtrees-${pkgver}.zip")
+options=('!strip')
+md5sums=('d942141d91a1ef258641159737eefc68')
+
+package() {
+# Manifest
+    mkdir -p ${pkgdir}/var/lib/ubos/manifests
+    install -m0644 ${startdir}/ubos-manifest.json ${pkgdir}/var/lib/ubos/manifests/${pkgname}.json
+
+# Icons
+    mkdir -p ${pkgdir}/srv/http/_appicons/$pkgname
+    install -m644 ${startdir}/appicons/{72x72,144x144}.png ${pkgdir}/srv/http/_appicons/$pkgname/
+
+# Data
+    mkdir -p ${pkgdir}/var/lib/${pkgname}
+    
+# Code
+    mkdir -p ${pkgdir}/usr/share/${pkgname}/bin
+    install -m755 ${startdir}/bin/populate-db.pl ${pkgdir}/usr/share/${pkgname}/bin/
+
+# SQL
+    mkdir -p ${pkgdir}/usr/share/${pkgname}/sql
+    install -m644 ${startdir}/sql/tables.sql ${pkgdir}/usr/share/${pkgname}/sql/
+
+# Templates
+    mkdir -p ${pkgdir}/usr/share/${pkgname}/tmpl
+    install -m644 ${startdir}/tmpl/{config.ini.php,htaccess}.tmpl ${pkgdir}/usr/share/${pkgname}/tmpl/
+
+# The app
+    cp -dr --no-preserve=ownership ${startdir}/src/webtrees ${pkgdir}/usr/share/${pkgname}/
+}
+
+
