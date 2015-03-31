@@ -38,11 +38,9 @@ PHP
 }
 
 if( $operation eq 'install' ) {
-    my( $dbName, $dbHost, $dbPort, $dbUser, $dbPassword, $dbCredentialType ) = UBOS::ResourceManager::getDatabase(
-            'mysql',
-            $appconfigid,
-            'webtrees',
-            'maindb' );
+    my( $dbName, $dbHost, $dbPort, $dbUser, $dbPassword, $dbCredentialType )
+            = UBOS::ResourceManager::findProvisionedDatabaseFor(
+            'mysql', $appconfigid, 'webtrees', 'maindb' );
 
     my $adminid    = $config->getResolve( 'site.admin.userid' );
     my $adminname  = $config->getResolve( 'site.admin.username' );
