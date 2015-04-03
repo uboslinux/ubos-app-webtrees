@@ -156,9 +156,7 @@
                 {
                     "type"         : "symlink",
                     "source"       : "${appconfig.datadir}/data",
-                    "name"         : "data",
-                    "retentionpolicy" : "keep",
-                    "retentionbucket" : "data",
+                    "name"         : "data"
                 }
             ],
 
@@ -172,7 +170,7 @@
         "mysql" : {
             "appconfigitems" : [
                 {
-                    "type"       : "mysql-database",
+                    "type"       : "database",
                     "name"       : "maindb",
                     "retentionpolicy"  : "keep",
                     "retentionbucket"  : "maindb",
@@ -185,7 +183,7 @@
                     "name"   : "maindb",
                     "source" : "sql/tables.sql"
                 }
-            ],
+            ]
         }
     },
     "customizationpoints" : {
