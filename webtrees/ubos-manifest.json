@@ -15,7 +15,8 @@
             "phpmodules" : [
                 "gd",
                 "mysql",
-                "mysqli"
+                "mysqli",
+                "pdo_mysql"
             ],
             "appconfigitems" : [
                 {
