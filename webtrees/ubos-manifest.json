@@ -128,8 +128,16 @@
                 {
                     "type"            : "directory",
                     "name"            : "${appconfig.datadir}/data",
+                    "dirpermissions"  : "0750",
+                    "filepermissions" : "0640",
+                    "uname"           : "${apache2.uname}",
+                    "gname"           : "${apache2.gname}"
+                },
+                {
+                    "type"            : "directory",
+                    "name"            : "${appconfig.datadir}/media",
                     "retentionpolicy" : "keep",
-                    "retentionbucket" : "datadir",
+                    "retentionbucket" : "mediadir",
                     "dirpermissions"  : "0750",
                     "filepermissions" : "0640",
                     "uname"           : "${apache2.uname}",
