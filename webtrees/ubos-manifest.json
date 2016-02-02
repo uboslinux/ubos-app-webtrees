@@ -13,6 +13,7 @@
                 "php7"
             ],
             "phpmodules" : [
+                "iconv",
                 "gd",
                 "mysqli",
                 "pdo_mysql"
@@ -187,14 +188,8 @@
                     "name"       : "maindb",
                     "retentionpolicy"  : "keep",
                     "retentionbucket"  : "maindb",
-                    "privileges" : "all privileges"
-                }
-            ],
-            "installers" : [
-                {
-                    "type"   : "sqlscript",
-                    "name"   : "maindb",
-                    "source" : "sql/tables.sql"
+                    "privileges" : "all privileges",
+                    "collate"    : "utf8_unicode_ci"
                 }
             ]
         }
