@@ -13,6 +13,7 @@ use UBOS::Utils;
 
 if( $operation eq 'install' ) {
     my $appconfigid = $config->getResolve( 'appconfig.appconfigid' );
+    my $context     = $config->getResolve( 'appconfig.context' );
 
     my( $dbName, $dbHost, $dbPort, $dbUser, $dbPassword, $dbCredentialType )
             = UBOS::ResourceManager::findProvisionedDatabaseFor(
@@ -22,15 +23,37 @@ if( $operation eq 'install' ) {
     my $adminname  = $config->getResolve( 'site.admin.username' );
     my $adminpass  = $config->getResolve( 'site.admin.credential' );
     my $adminemail = $config->getResolve( 'site.admin.email' );
+    my $hostname   = $config->getResolve( 'site.hostname' );
+    my $protocol   = $config->getResolve( 'site.protocol' );
     my $wtLocale   = $config->getResolve( 'installable.customizationpoints.locale.value' );
     my $dir        = $config->getResolve( 'appconfig.apache2.dir' );
 
-    # This is taken from setup.php, step six
     my $php = <<PHP;
 
 # Taken from setup.php
 
+    namespace Fisharebest\\Webtrees;
+
+    define('WT_TBLPREFIX', 'wt_');
+    define('WT_DEBUG_SQL', false);
+    define('WT_DATA_DIR', 'data/');
+    define('SERVER_NAME', '$hostname');
+
+    define('WT_ROOT', '' );
+    define('WT_MODULES_DIR', 'modules_v3/');
+    define('WT_CLIENT_IP', '127.0.0.1' );
+    define('WT_BASE_URL', '$protocol://$hostname$context' );
+
+    \$_SERVER['SERVER_NAME'] = SERVER_NAME;
+
     require 'vendor/autoload.php';
+    require 'app/Database.php';
+
+# Taken from setup.php, step one
+
+    Session::start();
+
+    define('WT_LOCALE', I18N::init(Filter::post('lang', '[a-zA-Z-]+', Filter::get('lang', '[a-zA-Z-]+'))));
 
 # Taken from setup.php, step three
 
@@ -50,7 +73,7 @@ if( $operation eq 'install' ) {
 # Taken from setup.php, step six
 
 	// Create/update the database tables.
-	Database::updateSchema('\Fisharebest\Webtrees\Schema', 'WT_SCHEMA_VERSION', 30);
+	Database::updateSchema('\\Fisharebest\\Webtrees\\Schema', 'WT_SCHEMA_VERSION', 30);
 
 	// Create the admin user
 	\$admin = User::create('$adminid', '$adminname', '$adminemail', '$adminpass');
