@@ -29,6 +29,7 @@ if( $operation eq 'install' ) {
     my $dir        = $config->getResolve( 'appconfig.apache2.dir' );
 
     my $php = <<PHP;
+<?php
 
 # Taken from setup.php
 
