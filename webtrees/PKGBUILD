@@ -3,14 +3,14 @@ url=${developer}
 maintainer=http://indiecomputing.com/
 pkgname=$(basename $(pwd))
 _major=1.7
-pkgver=${_major}.3
-pkgrel=5
+pkgver=${_major}.5
+pkgrel=1
 pkgdesc="Web based family history software"
 arch=('any')
 license=("GPL")
 source=("https://launchpad.net/webtrees/${_major}/${pkgver}/+download/webtrees-${pkgver}.zip")
 options=('!strip')
-sha512sums=('716515a1540775c614c69fae9b2278dc9a8bcdc6a4eab9b8cb5c1a75deca8e19396a64947b4d03b7f9d9112ca93e4c94ece0cbaffa4a79db3aefec7a3d84bd4d')
+sha512sums=('ad945361492c6a8e80dca4e58df332a00f9e7cc510bab5499e590aabc4d80a21972e178f23552ec0a2027c1a10daf1a5e84272afaac733efcef8201a71963ef2')
 
 package() {
 # Manifest
