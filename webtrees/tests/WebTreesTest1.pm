@@ -35,6 +35,7 @@ my $TEST = new UBOS::WebAppTest(
                     check => sub {
                         my $c = shift;
 
+                        $c->get( '/' ); # ignore the first access; it (sometimes?) redirect somewhere else
                         $c->getMustRedirect( '/', '/login.php?url=index.php%3F', undef, 'Not redirecting to login page' );
 
                         $c->getMustMatch( '/login.php?url=index.php%3F', '<link rel="icon.*themes/webtrees',                        undef, 'Wrong front page (1)' );
