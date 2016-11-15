@@ -118,7 +118,8 @@
                         "statisticsplot.php",
                         "themes",
                         "timeline.php",
-                        "vendor"
+                        "vendor",
+                        "README.md"
                     ],
                     "source" : "webtrees/$1",
                     "uname" : "root",
