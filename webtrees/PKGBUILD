@@ -10,7 +10,7 @@ arch=('any')
 license=("GPL")
 source=("https://launchpad.net/webtrees/${_major}/${pkgver}/+download/webtrees-${pkgver}.zip")
 options=('!strip')
-sha512sums=('873bfe3e983cd82f3dbdc9ab5950494e774e3154de34152102704dcc8fb631e68cf9023ff529a7832da8257cfd278bac7807b04bf99f9da55c46a5c8911c1ba1')
+sha512sums=('eff80525080409b0fe4100b1422530a59079e5a1c8e23c5b688416f45b5016869a67087c9a8f5c3379113ea103f57dd32f8614ea4dad83872ea206604dd5ace5')
 
 package() {
 # Manifest
