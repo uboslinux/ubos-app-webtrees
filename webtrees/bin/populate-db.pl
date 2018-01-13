@@ -2,6 +2,8 @@
 #
 # Taken in Step six from setup.php
 #
+# Copyright (C) 2015 and later, Indie Computing Corp. All rights reserved. License: see package.
+#
 
 use strict;
 use warnings;
