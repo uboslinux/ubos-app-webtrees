@@ -1,4 +1,2 @@
 webtrees-*.zip
-webtrees-*.pkg.tar.xz
-pkg/
-src/
+webtrees-*.pkg*
