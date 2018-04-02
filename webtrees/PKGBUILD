@@ -4,7 +4,7 @@ maintainer=http://indiecomputing.com/
 pkgname=$(basename $(pwd))
 _major=1.7
 pkgver=${_major}.9
-pkgrel=2
+pkgrel=3
 pkgdesc="Web based family history software"
 arch=('any')
 license=("GPL3")
@@ -15,30 +15,23 @@ sha512sums=('eff80525080409b0fe4100b1422530a59079e5a1c8e23c5b688416f45b5016869a6
 
 package() {
 # Manifest
-    mkdir -p ${pkgdir}/var/lib/ubos/manifests
-    install -m0644 ${startdir}/ubos-manifest.json ${pkgdir}/var/lib/ubos/manifests/${pkgname}.json
+    install -D -m0644 ${startdir}/ubos-manifest.json ${pkgdir}/ubos/lib/ubos/manifests/${pkgname}.json
 
 # Icons
-    mkdir -p ${pkgdir}/srv/http/_appicons/$pkgname
-    install -m644 ${startdir}/appicons/{72x72,144x144}.png ${pkgdir}/srv/http/_appicons/$pkgname/
+    install -D -m0644 ${startdir}/appicons/{72x72,144x144}.png ${pkgdir}/ubos/http/_appicons/${pkgname}/
 
 # Data
-    mkdir -p ${pkgdir}/var/lib/${pkgname}
+    mkdir -p ${pkgdir}/ubos/lib/${pkgname}
     
 # Code
-    mkdir -p ${pkgdir}/usr/share/${pkgname}/bin
-    install -m755 ${startdir}/bin/populate-db.pl ${pkgdir}/usr/share/${pkgname}/bin/
+    install -D -m0755 ${startdir}/bin/populate-db.pl ${pkgdir}/ubos/share/${pkgname}/bin/
 
 # SQL
-    mkdir -p ${pkgdir}/usr/share/${pkgname}/sql
-    install -m644 ${startdir}/sql/tables.sql ${pkgdir}/usr/share/${pkgname}/sql/
+    install -D -m644 ${startdir}/sql/tables.sql ${pkgdir}/ubos/share/${pkgname}/sql/
 
 # Templates
-    mkdir -p ${pkgdir}/usr/share/${pkgname}/tmpl
-    install -m644 ${startdir}/tmpl/{config.ini.php,htaccess}.tmpl ${pkgdir}/usr/share/${pkgname}/tmpl/
+    install -D -m644 ${startdir}/tmpl/{config.ini.php,htaccess}.tmpl -t ${pkgdir}/ubos/share/${pkgname}/tmpl/
 
 # The app
-    cp -dr --no-preserve=ownership ${startdir}/src/webtrees ${pkgdir}/usr/share/${pkgname}/
+    cp -dr --no-preserve=ownership ${startdir}/src/webtrees ${pkgdir}/ubos/share/${pkgname}/
 }
-
-
