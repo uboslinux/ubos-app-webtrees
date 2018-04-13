@@ -9,7 +9,7 @@ pkgdesc="Web based family history software"
 arch=('any')
 license=("GPL3")
 source=("https://launchpad.net/webtrees/${_major}/${pkgver}/+download/webtrees-${pkgver}.zip")
-releasepage=('https://launchpad.net/webtrees')
+releasepage=('https://github.com/fisharebest/webtrees/releases')
 options=('!strip')
 sha512sums=('eff80525080409b0fe4100b1422530a59079e5a1c8e23c5b688416f45b5016869a67087c9a8f5c3379113ea103f57dd32f8614ea4dad83872ea206604dd5ace5')
 
