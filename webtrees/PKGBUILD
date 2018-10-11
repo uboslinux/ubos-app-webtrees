@@ -3,31 +3,31 @@ url=${developer}
 maintainer=http://indiecomputing.com/
 pkgname=$(basename $(pwd))
 _major=1.7
-pkgver=${_major}.9
-pkgrel=3
+pkgver=${_major}.11
+pkgrel=1
 pkgdesc="Web based family history software"
 arch=('any')
 license=("GPL3")
-source=("https://launchpad.net/webtrees/${_major}/${pkgver}/+download/webtrees-${pkgver}.zip")
-releasepage=('https://launchpad.net/webtrees')
+source=("https://github.com/fisharebest/webtrees/releases/download/${pkgver}/webtrees-${pkgver}.zip")
+releasepage=('https://github.com/fisharebest/webtrees/releases')
 options=('!strip')
-sha512sums=('eff80525080409b0fe4100b1422530a59079e5a1c8e23c5b688416f45b5016869a67087c9a8f5c3379113ea103f57dd32f8614ea4dad83872ea206604dd5ace5')
+sha512sums=('652b4d369a2aec3c9664428caf6a38b1a636940b666a8bbbfc38d0ebd7993e8ada21645b42ce16bb6f75afeb64dcfc628630c857055887b5111a089f0e559b62')
 
 package() {
 # Manifest
     install -D -m0644 ${startdir}/ubos-manifest.json ${pkgdir}/ubos/lib/ubos/manifests/${pkgname}.json
 
 # Icons
-    install -D -m0644 ${startdir}/appicons/{72x72,144x144}.png ${pkgdir}/ubos/http/_appicons/${pkgname}/
+    install -D -m0644 ${startdir}/appicons/{72x72,144x144}.png -t ${pkgdir}/ubos/http/_appicons/${pkgname}/
 
 # Data
     mkdir -p ${pkgdir}/ubos/lib/${pkgname}
     
 # Code
-    install -D -m0755 ${startdir}/bin/populate-db.pl ${pkgdir}/ubos/share/${pkgname}/bin/
+    install -D -m0755 ${startdir}/bin/populate-db.pl -t ${pkgdir}/ubos/share/${pkgname}/bin/
 
 # SQL
-    install -D -m644 ${startdir}/sql/tables.sql ${pkgdir}/ubos/share/${pkgname}/sql/
+    install -D -m644 ${startdir}/sql/tables.sql -t ${pkgdir}/ubos/share/${pkgname}/sql/
 
 # Templates
     install -D -m644 ${startdir}/tmpl/{config.ini.php,htaccess}.tmpl -t ${pkgdir}/ubos/share/${pkgname}/tmpl/
