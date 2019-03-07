@@ -3,15 +3,15 @@ url=${developer}
 maintainer=http://indiecomputing.com/
 pkgname=$(basename $(pwd))
 _major=1.7
-pkgver=${_major}.9
-pkgrel=3
+pkgver=${_major}.12
+pkgrel=1
 pkgdesc="Web based family history software"
 arch=('any')
 license=("GPL3")
-source=("https://launchpad.net/webtrees/${_major}/${pkgver}/+download/webtrees-${pkgver}.zip")
+source=("https://github.com/fisharebest/webtrees/releases/download/${pkgver}/webtrees-${pkgver}.zip")
 releasepage=('https://github.com/fisharebest/webtrees/releases')
 options=('!strip')
-sha512sums=('eff80525080409b0fe4100b1422530a59079e5a1c8e23c5b688416f45b5016869a67087c9a8f5c3379113ea103f57dd32f8614ea4dad83872ea206604dd5ace5')
+sha512sums=('05519c91172e6a0a02164bea8d9838a6cfdc17e6fe5633f6f401e3b0dedc595b283cd29e9ace8b80871a57f4fad29f807417186eae921fcba54aa39e4ad2dafd')
 
 package() {
 # Manifest
@@ -22,7 +22,7 @@ package() {
 
 # Data
     mkdir -p ${pkgdir}/ubos/lib/${pkgname}
-    
+
 # Code
     install -D -m0755 ${startdir}/bin/populate-db.pl -t ${pkgdir}/ubos/share/${pkgname}/bin/
 
