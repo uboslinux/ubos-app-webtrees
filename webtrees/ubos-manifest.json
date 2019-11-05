@@ -7,7 +7,8 @@
             "depends" : [
                 "php",
                 "php-apache",
-                "php-gd"
+                "php-gd",
+                "smtp-server"
             ],
             "apache2modules" : [
                 "php7"
@@ -174,6 +175,10 @@
                     "type"         : "symlink",
                     "source"       : "${appconfig.datadir}/data",
                     "name"         : "data"
+                },
+                {
+                    "type" : "systemd-service",
+                    "name" : "smtp-server@${appconfig.appconfigid}"
                 }
             ],
 
