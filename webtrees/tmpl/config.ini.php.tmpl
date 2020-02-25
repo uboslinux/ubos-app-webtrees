@@ -1,4 +1,4 @@
-; <?php exit; ?> DO NOT DELETE THIS LINE
+; <?php return; ?> DO NOT DELETE THIS LINE
 
 ;
 ; Copyright (C) 2015 and later, Indie Computing Corp. All rights reserved. License: see package.
@@ -10,3 +10,4 @@ dbuser="${appconfig.mysql.dbuser.maindb}"
 dbpass="${escapeSquote(appconfig.mysql.dbusercredential.maindb)}"
 dbname="${appconfig.mysql.dbname.maindb}"
 tblpfx="wt_"
+base_url="${site.protocol}://${site.hostname}${appconfig.context}"
