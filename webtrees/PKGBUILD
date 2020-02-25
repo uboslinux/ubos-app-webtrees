@@ -3,15 +3,15 @@ url=${developer}
 maintainer=http://indiecomputing.com/
 pkgname=$(basename $(pwd))
 _major=1.7
-pkgver=${_major}.14
-pkgrel=2
+pkgver=${_major}.16
+pkgrel=1
 pkgdesc="Web based family history software"
 arch=('any')
 license=("GPL3")
 source=("https://github.com/fisharebest/webtrees/releases/download/${pkgver}/webtrees-${pkgver}.zip")
 releasepage=('https://github.com/fisharebest/webtrees/releases')
 options=('!strip')
-sha512sums=('abb2e2e27fbe7811b83467b0399f27a7fc931af1ff5f1da5c752eeab4ff11c5cfb93d3fe5b35214e8c2dedb535e39112820a1369e4819750ae41b9bd2aa4b084')
+sha512sums=('31e4800138176fa6a7c76db8cd042740cbf158f4b7deb7728e3dde94055a5b37be18a48dcb9dc935224f066026e48c5ab2fca8635f26b9a595c71ad098ce7d8a')
 
 package() {
 # Manifest
