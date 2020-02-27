@@ -2,16 +2,16 @@ developer=http://webtrees.net/
 url=${developer}
 maintainer=http://indiecomputing.com/
 pkgname=$(basename $(pwd))
-_major=1.7
-pkgver=${_major}.16
+_major=2.0
+pkgver=${_major}.2
 pkgrel=1
-pkgdesc="Web based family history software"
+pkgdesc="Online genealogy"
 arch=('any')
 license=("GPL3")
 source=("https://github.com/fisharebest/webtrees/releases/download/${pkgver}/webtrees-${pkgver}.zip")
 releasepage=('https://github.com/fisharebest/webtrees/releases')
 options=('!strip')
-sha512sums=('31e4800138176fa6a7c76db8cd042740cbf158f4b7deb7728e3dde94055a5b37be18a48dcb9dc935224f066026e48c5ab2fca8635f26b9a595c71ad098ce7d8a')
+sha512sums=('465ca25b5fcc523278d1eae18bb77ad88a5e5482d71a29a4c746163403421f7bee92d7853f92a1815e485bd40c6285769d314f7b098988e89cff47be3a12ea4a')
 
 package() {
 # Manifest
@@ -24,10 +24,10 @@ package() {
     mkdir -p ${pkgdir}/ubos/lib/${pkgname}
 
 # Code
-    install -D -m0755 ${startdir}/bin/populate-db.pl -t ${pkgdir}/ubos/share/${pkgname}/bin/
+    install -D -m0755 ${startdir}/bin/*.pl -t ${pkgdir}/ubos/share/${pkgname}/bin/
 
 # SQL
-    install -D -m644 ${startdir}/sql/tables.sql -t ${pkgdir}/ubos/share/${pkgname}/sql/
+    install -D -m644 ${startdir}/sql/*.sql* -t ${pkgdir}/ubos/share/${pkgname}/sql/
 
 # Templates
     install -D -m644 ${startdir}/tmpl/{config.ini.php,htaccess}.tmpl -t ${pkgdir}/ubos/share/${pkgname}/tmpl/
