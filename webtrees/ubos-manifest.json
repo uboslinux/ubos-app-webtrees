@@ -92,13 +92,6 @@
                     "type" : "systemd-service",
                     "name" : "smtp-server@${appconfig.appconfigid}"
                 }
-            ],
-
-            "xxxxinstallers" : [
-                {
-                    "type"   : "perlscript",
-                    "source" : "bin/populate-db.pl"
-                },
             ]
         },
         "mysql" : {
@@ -110,6 +103,26 @@
                     "retentionbucket"  : "maindb",
                     "privileges" : "all privileges",
                     "collate"    : "utf8_unicode_ci"
+                }
+            ],
+            "installers" : [
+                {
+                    "name"   : "maindb",
+                    "type"   : "sqlscript",
+                    "source" : "sql/initial.sql"
+                },
+                {
+                    "name"   : "maindb",
+                    "type"   : "perlscript",
+                    "source" : "bin/set-admin.pl"
+                }
+            ],
+
+            "upgraders" : [
+                {
+                    "name"   : "maindb",
+                    "type"   : "perlscript",
+                    "source" : "bin/set-admin.pl"
                 }
             ]
         }

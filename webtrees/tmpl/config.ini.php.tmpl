@@ -11,3 +11,7 @@ dbpass="${escapeSquote(appconfig.mysql.dbusercredential.maindb)}"
 dbname="${appconfig.mysql.dbname.maindb}"
 tblpfx="wt_"
 base_url="${site.protocol}://${site.hostname}${appconfig.context}"
+
+; This needs a .htaccess file of some kind, but I don't know what needs to be in it
+; rewrite_urls="1"
+

@@ -24,10 +24,10 @@ package() {
     mkdir -p ${pkgdir}/ubos/lib/${pkgname}
 
 # Code
-    install -D -m0755 ${startdir}/bin/populate-db.pl -t ${pkgdir}/ubos/share/${pkgname}/bin/
+    install -D -m0755 ${startdir}/bin/*.pl -t ${pkgdir}/ubos/share/${pkgname}/bin/
 
 # SQL
-    install -D -m644 ${startdir}/sql/tables.sql -t ${pkgdir}/ubos/share/${pkgname}/sql/
+    install -D -m644 ${startdir}/sql/*.sql* -t ${pkgdir}/ubos/share/${pkgname}/sql/
 
 # Templates
     install -D -m644 ${startdir}/tmpl/{config.ini.php,htaccess}.tmpl -t ${pkgdir}/ubos/share/${pkgname}/tmpl/
