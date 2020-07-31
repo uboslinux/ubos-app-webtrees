@@ -11,9 +11,11 @@
                 "smtp-server"
             ],
             "apache2modules" : [
-                "php7"
+                "php7",
+                "rewrite"
             ],
             "phpmodules" : [
+                "exif",
                 "iconv",
                 "gd",
                 "mysqli",
