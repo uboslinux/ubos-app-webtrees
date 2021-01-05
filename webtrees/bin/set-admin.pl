@@ -47,7 +47,7 @@ PHP
     my $escAdminName  = UBOS::Utils::escapeSquote( $adminName );
     my $escAdminPass  = UBOS::Utils::escapeSquote( $adminPass );
 
-    my $dbh = UBOS::Databases::MySqlDriver::dbConnect( $dbName, $dbUser, $dbPassword );
+    my $dbh = UBOS::Databases::MySqlDriver::dbConnect( $dbName, $dbUser, $dbPassword, 'webtrees database at AppConfigId ' . $appConfigId );
     unless( $dbh ) {
         error( 'Failed to connect to webtrees database:', $dbName );
     }

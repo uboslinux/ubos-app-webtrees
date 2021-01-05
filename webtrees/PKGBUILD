@@ -3,7 +3,7 @@ url=${developer}
 maintainer=http://indiecomputing.com/
 pkgname=$(basename $(pwd))
 _major=2.0
-pkgver=${_major}.7
+pkgver=${_major}.11
 pkgrel=1
 pkgdesc="Online genealogy"
 arch=('any')
@@ -11,7 +11,7 @@ license=("GPL3")
 source=("https://github.com/fisharebest/webtrees/releases/download/${pkgver}/webtrees-${pkgver}.zip")
 releasepage=('https://github.com/fisharebest/webtrees/releases')
 options=('!strip')
-sha512sums=('a3cfc444f7140926b731d04fbbf597262aa9d33474987e3683c720402ffd1057d14592144d019c5c738dd1a9e14fd871f3fcf59b2e5ef782d5e52472b009f974')
+sha512sums=('6511beffeeffdd563a744a765f33fd0ed595d09882b28fb0dbbae58c3ad4de0f24abc4133c15a3788b271bc7d1ec9427bcf93f6610be3a22199c0503035eeb61')
 
 package() {
 # Manifest
