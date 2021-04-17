@@ -1,6 +1,8 @@
 {
     "type" : "app",
 
+    "allowswildcardhostname" : false,
+
     "roles" : {
         "apache2" : {
             "defaultcontext" : "/webtrees",
@@ -104,7 +106,8 @@
                     "retentionpolicy"  : "keep",
                     "retentionbucket"  : "maindb",
                     "privileges" : "all privileges",
-                    "collate"    : "utf8_unicode_ci"
+                    "charset"    : "utf8mb4",
+                    "collate"    : "utf8mb4_unicode_ci"
                 }
             ],
             "installers" : [
