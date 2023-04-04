@@ -1,0 +1,4 @@
+On the first run, a strange NullPointerException occurs on variable $translator
+Restart the webserver, and it should go away.
+Why ... no idea!
+
